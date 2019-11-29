@@ -1,0 +1,34 @@
+body{
+  margin: auto;
+  font-family: 'Montserrat', sans-serif;
+}
+.header{
+  height: 100px ;
+}
+.wrapper{
+  width: 1060px;
+  margin: auto;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+}
+.mainContainer {
+  &.mainContainerProducts {
+    width: 720px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+  &.mainContainerAside {
+    width: 340px;
+  }
+}
+.mainProducts {
+  .productsHeader{
+
+  }
+  .productsList{
+
+  }
+}

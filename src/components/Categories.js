@@ -1,19 +1,12 @@
-import fetch from "isomorphic-unfetch";
-import React, {useEffect} from 'react';
-import css from '../styles.scss';
+import React from 'react';
+import styles from '../styles/categories.scss';
 import Link from "next/link";
-console.log(process.env.API_URL);
 const Categories = ({data = []}) => {
-    useEffect(() => {
-        fetch('api/language').then(r => {
-            console.log(r);
-        });
-    }, []);
     return (
-        <div className={css.categories}>
+        <div className={styles.categories}>
             {data.map((item) => {
                 return (
-                    <div className={css.item} key={item.category_id}>
+                    <div className={styles.item} key={item.category_id}>
                         <Link href={`/search/${item.url_name}`}>
                             <a>
                                 <div>
