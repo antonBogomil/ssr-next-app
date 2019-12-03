@@ -4,34 +4,44 @@
   padding-top: 20px;
   padding-bottom: 20px;
   position: relative;
-  .productBrand{
+
+  .productBrand {
     font-size: 12px;
-    img{
+    text-align: center;
+    img {
       width: auto;
       max-width: 62px;
       max-height: 60px;
     }
   }
+
   .productHeader {
     position: relative;
     padding: 10px 20px 0 0;
+    display: flex;
 
     .productUpdate {
       position: absolute;
       right: 15px;
-      top: 0;
       color: #3f3f3f;
     }
   }
 
   .productName {
-
+    max-width: 400px;
+    padding-left: 20px;
+    a{
+      text-decoration: none;
+      color: #254099;
+      font-weight: bold;
+    }
   }
 
   .productImage {
-    img{
-      width: 400px;
-      max-width: 100%;
+    text-align: center;
+
+    img {
+      max-width: 300px;
       max-height: 300px;
       object-fit: contain;
     }

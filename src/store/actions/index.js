@@ -1,8 +1,8 @@
 import {actionTypes} from "../types";
 
-export const loadCategories = (categories)=>{
+export const initPage = (data)=>{
     return {
-        type: actionTypes.LOAD_CATEGORIES,
-        payload: categories
+        type: actionTypes.INIT_PAGE,
+        payload: data
     }
 };

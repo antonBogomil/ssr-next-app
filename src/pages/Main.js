@@ -7,8 +7,11 @@ import {ApiService} from "../api";
 import styles from '../styles/main.scss';
 import Banner from "../components/Banner";
 import Product from "../components/Product";
+import Header from "../components/Header";
+import tokens from "../dictionary";
+import {initPage} from "../store/actions";
 
-const Main = ({categories, products}) => {
+const Main = ({categories, products, locales, dispatch}) => {
     return (
         <>
             <Head>
@@ -17,44 +20,48 @@ const Main = ({categories, products}) => {
                 </style>
                 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
             </Head>
-            <header className={classNames(styles.header, styles.wrapper)}>
+            <Header/>
+            <main className={classNames(styles.main)}>
+                <div className='wrapper'>
+                    <section className={classNames(styles.mainContainer, styles.mainContainerProducts)}>
+                        <div className={styles.mainProducts}>
+                            <div className={styles.productsHeader}>
 
-            </header>
-            <main className={classNames(styles.main, styles.wrapper)}>
-                <section className={classNames(styles.mainContainer, styles.mainContainerProducts)}>
-                    <div className={styles.mainProducts}>
-                        <div className={styles.productsHeader}>
-
+                            </div>
+                            <div className={styles.productsList}>
+                                {
+                                    products.map((product) => {
+                                        return (
+                                            <Product key={product.product_id}
+                                                     product={product}
+                                            />
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
-                        <div className={styles.productsList}>
-                            {
-                                products.map((product) => {
-                                    return (
-                                        <Product key={product.product_id}
-                                                 product={product}
-                                        />
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
-                </section>
-                <aside className={classNames(styles.mainContainer, styles.mainContainerAside)}>
-                    <Banner/>
-                    <Categories data={categories}/>
-                </aside>
+                    </section>
+                    <aside className={classNames(styles.mainContainer, styles.mainContainerAside)}>
+                        <Banner/>
+                        <Categories data={categories}/>
+                    </aside>
+                </div>
             </main>
         </>
     )
 };
-Main.getInitialProps = async () => {
+Main.getInitialProps = async ({store}) => {
     const categories = await ApiService.getCategories();
-    const data = await ApiService.getProducts();
-    console.log(categories);
+    const productsData = await ApiService.getProducts();
+    const translations = await ApiService.getTranslations({language: 'en', tokens: tokens});
+    const locales = translations.data;
+    console.log(store);
+    store.dispatch(initPage({categories, locales}));
     return {
         categories: categories,
         user: {},
-        products: data.products
+        products: productsData.products,
+        locales: locales,
     }
 };
 export default connect()(Main)
