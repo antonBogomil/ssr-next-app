@@ -3,7 +3,7 @@ import {actionTypes} from "../types";
 export const reducer = (state, action) => {
     switch (action.type) {
         case actionTypes.INIT_PAGE:
-            return {...state, locales : action.payload.locales};
+            return {...state, locales : action.payload.locales,categories: action.payload.categories};
         default:
             return state
     }

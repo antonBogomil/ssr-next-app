@@ -1,3 +1,15 @@
 .nav{
   display: flex;
 }
+.navLinks{
+  a{
+    color: #000;
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 2px;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}

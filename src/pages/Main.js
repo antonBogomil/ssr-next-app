@@ -12,6 +12,7 @@ import tokens from "../dictionary";
 import {initPage} from "../store/actions";
 
 const Main = ({categories, products, locales, dispatch}) => {
+    dispatch(initPage({categories, locales}));
     return (
         <>
             <Head>
@@ -50,18 +51,25 @@ const Main = ({categories, products, locales, dispatch}) => {
         </>
     )
 };
-Main.getInitialProps = async ({store}) => {
-    const categories = await ApiService.getCategories();
-    const productsData = await ApiService.getProducts();
-    const translations = await ApiService.getTranslations({language: 'en', tokens: tokens});
-    const locales = translations.data;
-    console.log(store);
-    store.dispatch(initPage({categories, locales}));
+Main.getInitialProps = async () => {
+
+    const categoriesRes = ApiService.getCategories();
+    const productsRes = ApiService.getProducts();
+    const translationsRes = ApiService.getTranslations({language: 'en', tokens: tokens});
+
+    const productsResult = await productsRes;
+    const translationsResult = await translationsRes;
+    const categoriesResult = await categoriesRes;
+
+    const locales = await translationsResult.json();
+    const categories = await categoriesResult.json();
+    const productsData =  await productsResult.json();
+
     return {
         categories: categories,
         user: {},
         products: productsData.products,
-        locales: locales,
+        locales: locales.data,
     }
 };
 export default connect()(Main)

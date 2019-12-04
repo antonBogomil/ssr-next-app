@@ -16,10 +16,8 @@ export const ApiService = {
                 'Access-Control-Allow-Origin':'*',
             })
         });
-        return res.data
+        return res
     }
-
-
 };
 
 async function post(url,params={}){
@@ -29,7 +27,7 @@ async function post(url,params={}){
     };
     try {
         const res = await fetch(baseUrl + url,config);
-        return await res.json();
+        return res;
     }
     catch (e) {
 
@@ -44,7 +42,7 @@ async function get(url, params = {}) {
     };
     try {
         const res = await fetch(baseUrl + url + '?' + query, config);
-        return await res.json();
+        return res
     } catch (e) {
     }
 }

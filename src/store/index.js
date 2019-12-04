@@ -5,7 +5,8 @@ const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOO
 const initialState = {
     user: {},
     categories: [],
-    locales: []
+    locales: [],
+    lang: 'en'
 };
 
 export default () => createStore(reducer, initialState,composeEnhancers());
