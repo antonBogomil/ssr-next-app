@@ -12,7 +12,7 @@ import tokens from "../dictionary";
 import {initPage} from "../store/actions";
 
 const Main = ({categories, products, locales, dispatch}) => {
-    dispatch(initPage({categories, locales}));
+
     return (
         <>
             <Head>
@@ -23,7 +23,7 @@ const Main = ({categories, products, locales, dispatch}) => {
             </Head>
             <Header/>
             <main className={classNames(styles.main)}>
-                <div className='wrapper'>
+                <div className={classNames('wrapper', styles.mainWrapper)}>
                     <section className={classNames(styles.mainContainer, styles.mainContainerProducts)}>
                         <div className={styles.mainProducts}>
                             <div className={styles.productsHeader}>
@@ -51,25 +51,28 @@ const Main = ({categories, products, locales, dispatch}) => {
         </>
     )
 };
-Main.getInitialProps = async () => {
+Main.getInitialProps = async (context) => {
+    if (context.req) {
+        const categoriesRes = ApiService.getCategories();
+        const productsRes = ApiService.getProducts();
+        const translationsRes = ApiService.getTranslations({language: 'en', tokens: tokens});
+        const productsResult = await productsRes;
+        const translationsResult = await translationsRes;
+        const categoriesResult = await categoriesRes;
+        const locales = await translationsResult.json();
+        const categories = await categoriesResult.json();
+        const productsData = await productsResult.json();
+        // dispatch(initPage({categories, locales, products}));
 
-    const categoriesRes = ApiService.getCategories();
-    const productsRes = ApiService.getProducts();
-    const translationsRes = ApiService.getTranslations({language: 'en', tokens: tokens});
-
-    const productsResult = await productsRes;
-    const translationsResult = await translationsRes;
-    const categoriesResult = await categoriesRes;
-
-    const locales = await translationsResult.json();
-    const categories = await categoriesResult.json();
-    const productsData =  await productsResult.json();
-
-    return {
-        categories: categories,
-        user: {},
-        products: productsData.products,
-        locales: locales.data,
+        return {
+            categories: categories,
+            user: {},
+            products: productsData.products,
+            locales: locales.data,
+        }
+    } else {
     }
+    return context
+
 };
 export default connect()(Main)

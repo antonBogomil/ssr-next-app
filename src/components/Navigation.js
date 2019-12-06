@@ -11,22 +11,24 @@ const Navigation = () => {
     const {locales, lang} = useSelector(state => state);
     return (
         <nav className={styles.nav}>
-            <div className={styles.navLinks}>
-                <Link href={`${lang}/${links.channelPartners}`}>
-                    <a>{locales.menu_channel_partners}</a>
-                </Link>
-                <Link href={`${lang}/${links.manufactures}`}>
-                    <a>{locales.manufacturers}</a>
-                </Link>
-                <a href={`${links.partners}`}>
-                    {locales.lang_marketplace}
-                </a>
-            </div>
-            <div className={styles.navLocale}>
-                <Locales/>
-            </div>
-            <div className={styles.navMenu}>
-                <Menu/>
+            <div className={classNames(styles.navWrapper, 'wrapper')}>
+                <div className={styles.navLinks}>
+                    <Link href={`${lang}/${links.channelPartners}`}>
+                        <a>{locales.menu_channel_partners}</a>
+                    </Link>
+                    <Link href={`${lang}/${links.manufactures}`}>
+                        <a>{locales.manufacturers}</a>
+                    </Link>
+                    <a href={`${links.partners}`}>
+                        {locales.lang_marketplace}
+                    </a>
+                </div>
+                <div className={styles.navLocale}>
+                    <Locales/>
+                </div>
+                <div className={styles.navMenu}>
+                    <Menu/>
+                </div>
             </div>
         </nav>
     );

@@ -1,8 +1,11 @@
 
-.main .wrapper{
-  display: flex;
-  flex-direction: row;
+.main {
+  .mainWrapper {
+    display: flex;
+    flex-direction: row;
+  }
 }
+
 .mainContainer {
   &.mainContainerProducts {
     width: 720px;
@@ -14,11 +17,13 @@
     width: 340px;
   }
 }
+
 .mainProducts {
-  .productsHeader{
+  .productsHeader {
 
   }
-  .productsList{
+
+  .productsList {
 
   }
 }

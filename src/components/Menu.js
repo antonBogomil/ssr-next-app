@@ -1,14 +1,15 @@
-import React,{useState} from 'react';
-import burgerIcon from '../images/burger-icon.png';
-import burgerIconClose from '../images/burger-close-icon.png';
+import React, {useState} from 'react';
 import styles from '../styles/menu.scss';
+import classNames from 'classnames';
+
 const Menu = () => {
     const [isOpen, setOpen] = useState(false);
+    console.log(isOpen);
     return (
         <div className={styles.menu}>
-            <div className={styles.burgerIcon}>
-                <img src={burgerIcon}/>
-            </div>
+            <span className={classNames(styles.burgerIcon, {[styles.burgerIconClose]: isOpen})} onClick={() => {
+                setOpen(!isOpen)
+            }}/>
         </div>
     );
 };
