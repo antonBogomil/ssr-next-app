@@ -12,6 +12,7 @@ import tokens from "../dictionary";
 import {initPage} from "../store/actions";
 
 const Main = ({categories, products, locales, dispatch}) => {
+    dispatch(initPage({categories, locales: locales, products: products}));
 
     return (
         <>
@@ -62,7 +63,6 @@ Main.getInitialProps = async (context) => {
         const locales = await translationsResult.json();
         const categories = await categoriesResult.json();
         const productsData = await productsResult.json();
-        // dispatch(initPage({categories, locales, products}));
 
         return {
             categories: categories,
