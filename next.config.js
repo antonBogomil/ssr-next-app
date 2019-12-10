@@ -10,11 +10,12 @@ module.exports = withPlugins([
         cssLoaderOptions: {
             localIdentName: '[local]',
         },
-        [PHASE_PRODUCTION_BUILD] : {
-            cssLoaderOptions: {
-                localIdentName: '[hash:base64:8]',
-            },
-        }
+        // TODO Production config
+        // [PHASE_PRODUCTION_BUILD] : {
+        //     cssLoaderOptions: {
+        //         localIdentName: '[hash:base64:8]',
+        //     },
+        // }
     }],
     css,
     images
