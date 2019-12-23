@@ -13,7 +13,6 @@ import {initPage} from "../store/actions";
 
 const Main = ({categories, products, locales, dispatch}) => {
     dispatch(initPage({categories, locales: locales, products: products}));
-
     return (
         <>
             <Head>
@@ -28,7 +27,9 @@ const Main = ({categories, products, locales, dispatch}) => {
                     <section className={classNames(styles.mainContainer, styles.mainContainerProducts)}>
                         <div className={styles.mainProducts}>
                             <div className={styles.productsHeader}>
-
+                                <h2>
+                                    {locales.new_products_lang}
+                                </h2>
                             </div>
                             <div className={styles.productsList}>
                                 {

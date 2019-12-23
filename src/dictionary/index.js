@@ -20,6 +20,7 @@ const tokens = ['new_products_lang',
     'lang_more',
     'txt_country',
     'lang_language',
+    'search_button_title',
     'lang_account_settings',
     'lang_my_downloads',
     'lang_pricelist',
@@ -48,5 +49,13 @@ const tokens = ['new_products_lang',
     'lang_choose_country_dropdown',
     'cookie_warning',
     'login_ok',
-    'MFN_landingPage_slider_read_more'];
+    'MFN_landingPage_slider_read_more',
+    'txt_whatisicecat',
+    'total_number_of_datasheets',
+    'with',
+    'open_catalog',
+    'total_number_of_brands',
+    'data-sheets'
+
+];
 export default tokens

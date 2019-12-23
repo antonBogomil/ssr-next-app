@@ -13,12 +13,8 @@ const Navigation = () => {
         <nav className={styles.nav}>
             <div className={classNames(styles.navWrapper, 'wrapper')}>
                 <div className={styles.navLinks}>
-                    <Link href={`${lang}/${links.channelPartners}`}>
-                        <a>{locales.menu_channel_partners}</a>
-                    </Link>
-                    <Link href={`${lang}/${links.manufactures}`}>
-                        <a>{locales.manufacturers}</a>
-                    </Link>
+                    <a href={`${lang}/${links.channelPartners}`}>{locales.menu_channel_partners}</a>
+                    <a href={`${lang}/${links.manufactures}`}>{locales.manufacturers}</a>
                     <a href={`${links.partners}`}>
                         {locales.lang_marketplace}
                     </a>

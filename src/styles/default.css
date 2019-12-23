@@ -1,8 +1,14 @@
-.wrapper{
-  width: 1060px;
-  margin: auto;
+.wrapper {
+    width: 1060px;
+    margin: auto;
 }
-body{
-  margin: auto;
-  font-family: 'Montserrat', sans-serif;
+
+body {
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+small {
+    font-size: 12px;
+    color: #000000;
 }

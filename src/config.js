@@ -30,5 +30,33 @@ export const topCountriesConfig = [
         img: 'https://icecat.de/themes/transitional/images/flags/United_States.jpg',
         href: '/us'
     },
-
 ];
+
+export const menu = {
+    private: [],
+    public: [
+        {
+            name: 'Login',
+            href: '/auth'
+        },
+        {
+            name: 'Registration',
+            href: '/registration'
+        },
+        {
+            name: 'Edit',
+            href: 'https://bo.icecat.biz/'
+        }
+    ],
+    default: [
+        {
+            name: 'Search',
+            href: '/search'
+        },
+        {
+            name: 'Catalog',
+            href: '/catalog'
+        }
+    ]
+
+};

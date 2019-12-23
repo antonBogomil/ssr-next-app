@@ -1,26 +1,25 @@
 import React from 'react';
-import styles from '../styles/search.scss';
 import logoImage from '../images/logo_new.png';
 import classNames from 'classnames';
-import Link from 'next/link';
+import styles from '../styles/nav.scss';
+import Search from "./Search";
+import MainInfo from "./MainInfo";
 
 const SearchNavigation = () => {
     return (
         <nav className={styles.navigationSearch}>
             <div className={classNames(styles.navigationSearchWrapper, 'wrapper')}>
                 <div className={styles.logo}>
-                    <Link href='/'>
-                        <a>
-                            <img src={logoImage} alt='Icecat'/>
-                        </a>
-                    </Link>
+                    <a href='/'>
+                        <img src={logoImage} alt='Icecat'/>
+                    </a>
                 </div>
-                <div className={styles.search}>
-
+                <div className={styles.searchContainer}>
+                    <Search/>
+                    <MainInfo/>
                 </div>
             </div>
         </nav>
     );
 };
-
 export default SearchNavigation;

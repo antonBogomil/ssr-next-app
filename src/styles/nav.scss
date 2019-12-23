@@ -1,13 +1,19 @@
-.nav{
+.nav {
   border-bottom: 1px solid #eaeaea;
-  .navWrapper{
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 100;
+  top: 0;
+  .navWrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 }
-.navLinks{
-  a{
+
+.navLinks {
+  a {
     color: #000;
     padding-left: 10px;
     display: inline-block;
@@ -16,5 +22,25 @@
     font-size: 12px;
     text-decoration: none;
     font-weight: bold;
+  }
+}
+
+.navigationSearch {
+  padding: 12px 0;
+  margin-top: 34px;
+  .navigationSearchWrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    img {
+    }
+  }
+
+  .searchContainer {
+    width: 800px;
+    padding-left: 20px;
+
   }
 }

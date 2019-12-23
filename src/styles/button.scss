@@ -1,0 +1,13 @@
+.btn{
+  outline: none;
+  color: black;
+  font-weight: bold;
+  padding: 0 15px;
+  background: linear-gradient(to bottom, #fdde9f 0, #fdde9f 50%, #ffcb6c 51%, #fec357 100%), orange;
+  border: 2px solid #FBB34E;
+  border-radius: 7px;
+  line-height: 32px;
+  display: flex;
+  font-size: 13px;
+  cursor: pointer;
+}
