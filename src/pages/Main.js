@@ -10,6 +10,7 @@ import Product from "../components/Product";
 import Header from "../components/Header";
 import tokens from "../dictionary";
 import {initPage} from "../store/actions";
+import Products from "../containers/products";
 
 const Main = ({categories, products, locales, dispatch}) => {
     dispatch(initPage({categories, locales: locales, products: products}));
@@ -32,15 +33,7 @@ const Main = ({categories, products, locales, dispatch}) => {
                                 </h2>
                             </div>
                             <div className={styles.productsList}>
-                                {
-                                    products.map((product) => {
-                                        return (
-                                            <Product key={product.product_id}
-                                                     product={product}
-                                            />
-                                        )
-                                    })
-                                }
+                                <Products products={products}/>
                             </div>
                         </div>
                     </section>
