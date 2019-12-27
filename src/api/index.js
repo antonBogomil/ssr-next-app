@@ -4,6 +4,7 @@ export const ApiService = {
     getCategories: () => (get('/rest/main-categories')),
     getAuth: () => (get('/rest/auth')),
     getProducts: () => get('/new-main/get-init-products'),
+    getLanguages: ()=> get('/rest/languages'),
     getTranslations: (params)=> post('/rest/translations', params),
     getImage: async (params) => {
         let query = Object.keys(params)

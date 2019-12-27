@@ -5,6 +5,10 @@
   background-color: white;
   z-index: 100;
   top: 0;
+  .navRight{
+    display: flex;
+    align-items: center;
+  }
   .navWrapper {
     display: flex;
     justify-content: space-between;

@@ -7,7 +7,8 @@ export const reducer = (state, action) => {
                 ...state,
                 locales: action.payload.locales,
                 categories: action.payload.categories,
-                products: action.payload.products
+                products: action.payload.products,
+                languages: action.payload.languages
             };
         default:
             return state

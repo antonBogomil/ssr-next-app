@@ -1,15 +1,27 @@
-.countries {
+.locale{
   display: flex;
+  font-size: 12px;
   a{
-    font-size: 12px;
     text-decoration: none;
     color: #000000;
   }
 }
+.countries {
+  display: flex;
+}
 
 .language {
-
+  width: 200px;
+  margin: 0 20px;
+  position: relative;
+  .langBtn{
+    cursor: pointer;
+  }
+  .languageModal{
+    position: absolute;
+  }
 }
+
 
 .languageList {
   display: inline-block;

@@ -19,12 +19,14 @@ const Navigation = () => {
                         {locales.lang_marketplace}
                     </a>
                 </div>
-                <div className={styles.navLocale}>
-                    <Locales/>
-                </div>
-                <div className={styles.navMenu}>
-                    <Menu/>
-                </div>
+               <div className={styles.navRight}>
+                   <div className={styles.navLocale}>
+                       <Locales/>
+                   </div>
+                   <div className={styles.navMenu}>
+                       <Menu/>
+                   </div>
+               </div>
             </div>
         </nav>
     );
