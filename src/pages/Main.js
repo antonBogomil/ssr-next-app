@@ -57,12 +57,13 @@ Main.getInitialProps = async (context) => {
         const locales = await translationsResult.json();
         const categories = await categoriesResult.json();
         const productsData = await productsResult.json();
-
+        const productsLocales = productsData.translations;
         return {
             categories: categories,
             user: {},
             products: productsData.products,
             locales: locales.data,
+            languages: []
         }
     } else {
     }

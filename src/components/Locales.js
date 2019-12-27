@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import {links, topCountriesConfig} from "../config";
 import Link from 'next/link';
 import styles from '../styles/locales.scss';
-
+import Autocomplete from 'react-autocomplete';
 const Locales = () => {
     const {locales, lang} = useSelector(state => state);
     return (
@@ -22,7 +22,14 @@ const Locales = () => {
     );
 };
 
+const Languages = () => {
+    const {locales, lang, languages} = useSelector(state => state);
+    return (
+        <Autocomplete>
 
+        </Autocomplete>
+    )
+};
 const Countries = () => {
     return (
         <ul className={styles.languageList}>
