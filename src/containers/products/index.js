@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useReducer, useEffect} from 'react';
 import Product from "../../components/Product";
 import {productsReducer} from "./reducer";
 import {getFirstProduct, getLastProduct} from "./utils";
@@ -10,12 +10,28 @@ export const initialState = {
     loading: false,
 };
 const Products = ({products}) => {
+    let scrolledHeight = 0;
     const [state, setState] = useReducer(productsReducer, {
         ...initialState,
         products,
-        last: getLastProduct(products),
-        first: getFirstProduct(products)
+        last: getLastProductTime(products),
+        first: getFirstProductTime(products)
     });
+    useEffect(() => {
+        console.log(products);
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > scrolledHeight) {
+                scrolledHeight = window.scrollY;
+                if (window.innerHeight + window.scrollY + 200 >= document.body.offsetHeight) {
+                    console.log('get more');
+                }
+            }
+            else {
+                scrolledHeight = window.scrollY;
+                console.log('get fresh');
+            }
+        })
+    }, []);
     return (
         <>
             {

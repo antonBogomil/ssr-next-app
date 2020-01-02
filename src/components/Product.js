@@ -7,17 +7,17 @@ import Link from "next/link";
 import {useSelector} from 'react-redux';
 
 const icecatBrandSrc = 'https://uk.icecat.biz/themes/transitional/images/placeholder3.jpg';
-const noImageSrc = 'https://uk.icecat.biz/themes/basic/css/imgs/noimage.png';
-
 const Product = ({product}) => {
-    const {manufacturer_image, supplier_name, updated, product_picture_id, url, title} = product;
+    const {manufacturer_image, supplier_name, sponsor, updated, product_picture_id, product_id, url, title, short_summary_description} = product;
     const {lang, locales} = useSelector((state) => state);
+    const isSponsor = sponsor === "1";
     return (
         <div className={styles.product}>
             <div className={styles.productHeader}>
                 <div className={styles.productBrand}>
-                    <img src={manufacturer_image || icecatBrandSrc}/>
-                    <div>{manufacturer_image && supplier_name}</div>
+                    <img src={isSponsor ? manufacturer_image : icecatBrandSrc}/>
+                    {isSponsor && <div>{supplier_name}</div>
+                    }
                 </div>
                 <div className={styles.productName}>
                     <Link href={url}>
@@ -34,11 +34,12 @@ const Product = ({product}) => {
             </div>
             <div className={styles.productMain}>
                 <div className={styles.productImage}>
-                    <img src={noImageSrc} alt={product_picture_id}/>
-                    {/*<ImageLoader gallery={product_picture_id} productId={product_id}/>*/}
+                    {
+                        isSponsor && <ImageLoader gallery={product_picture_id} productId={product_id}/>
+                    }
                 </div>
-                <div>{product.short_summary_description}
-                    <a href={product.url}>{locales.lang_more}</a>
+                <div className={styles.productDescription}>{short_summary_description}
+                    <a href={url}>{locales.lang_more}</a>
                 </div>
             </div>
             <div style={styles.productFooter}>

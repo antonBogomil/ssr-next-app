@@ -12,8 +12,9 @@ import tokens from "../dictionary";
 import {initPage} from "../store/actions";
 import Products from "../containers/products";
 
-const Main = ({categories, products, locales,languages, dispatch}) => {
-    dispatch(initPage({categories, locales: locales, products: products,languages: languages}));
+const Main = ({categories, products, locales, languages, dispatch}) => {
+    dispatch(initPage({categories, locales: locales, products: products, languages: languages}));
+
     return (
         <>
             <Head>

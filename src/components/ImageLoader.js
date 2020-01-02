@@ -1,27 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {ApiService} from "../api";
 
+const noImageSrc = 'https://icecat.biz/themes/basic/css/imgs/noimage.png';
+
 const ImageLoader = ({productId, gallery, type = 'medium'}) => {
-    const [img, setImg] = useState('');
+    const [img, setImg] = useState(noImageSrc);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await ApiService.getImage({
+                const res = await ApiService.getImage({
                     product_id: productId,
                     type_image: type,
                     product_gallery_id: gallery
-                },(data) =>{
-                    console.log(data);
-                } );
-            }
-            catch (e) {
-
+                });
+                setImg(res.data)
+            } catch (e) {
+                console.log(e);
             }
         };
         fetchData();
-        // setImg(base);
     }, []);
-    console.log(img);
     return (
         <div>
             <img src={img} alt={productId}/>

@@ -4,7 +4,10 @@
   padding-top: 20px;
   padding-bottom: 20px;
   position: relative;
-
+  .productDescription{
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
   .productBrand {
     font-size: 12px;
     text-align: center;
