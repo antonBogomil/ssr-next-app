@@ -15,8 +15,8 @@ const Products = ({products}) => {
     const [state, setState] = useReducer(productsReducer, {
         ...initialState,
         products,
-        last: getLastProductTime(products),
-        first: getFirstProductTime(products)
+        // last: getLastProductTime(products),
+        // first: getFirstProductTime(products)
     });
     useEffect(() => {
         console.log(products);
