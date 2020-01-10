@@ -5,7 +5,6 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'airbnb',
   ],
   globals: {
     Atomics: 'readonly',
@@ -23,6 +22,7 @@ module.exports = {
   ],
   rules: {
     "no-unused-vars": "warn",
+    "import/prefer-default-export": "off",
     "react/prop-types": [0, {}]
   },
 };

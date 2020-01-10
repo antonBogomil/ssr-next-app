@@ -18,7 +18,6 @@ const Main = ({
   dispatch(initPage({
     categories, locales, products, languages,
   }));
-
   return (
     <>
       <Head>
