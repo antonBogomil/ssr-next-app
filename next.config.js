@@ -5,26 +5,24 @@ const { PHASE_PRODUCTION_BUILD } = require('next-server/constants');
 const images = require('next-images');
 
 module.exports = withPlugins([
-  [sass, {
-    cssModules: true,
-    cssLoaderOptions: {
-      localIdentName: '[local]',
-    },
-    // TODO Production config
-    // [PHASE_PRODUCTION_BUILD] : {
-    //     cssLoaderOptions: {
-    //         localIdentName: '[hash:base64:8]',
-    //     },
-    // }
-  }],
-  css,
-  images,
-]);
+      [sass, {
+        cssModules: true,
+        cssLoaderOptions: {
+          localIdentName: '[local]',
+        },
+        // TODO Production config
+        // [PHASE_PRODUCTION_BUILD] : {
+        //     cssLoaderOptions: {
+        //         localIdentName: '[hash:base64:8]',
+        //     },
+        // }
+      }],
+      css,
+      images,
+    ],
+    {
+      assetPrefix: '/ssr',
+      distDir: '/ssr/_next',
+    }
+);
 
-// module.exports = withSass({
-//     cssModules: true,
-//     cssLoaderOptions: {
-//         importLoaders: 1,
-//         localIdentName: "[local]",
-//     }
-// })

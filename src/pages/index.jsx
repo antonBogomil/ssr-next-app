@@ -6,13 +6,13 @@ import Categories from '../components/Categories';
 import { ApiService } from '../api';
 import styles from '../styles/main.scss';
 import Banner from '../components/Banner';
-import Product from '../components/Product';
 import Header from '../components/Header';
 import tokens from '../dictionary';
 import { initPage } from '../store/actions';
-import Products from '../containers/products';
+import Products from "../containers/products";
+// import Products from '../containers/products';
 
-const Main = ({
+const Index = ({
   categories, products, locales, languages, dispatch,
 }) => {
   dispatch(initPage({
@@ -49,7 +49,7 @@ const Main = ({
     </>
   );
 };
-Main.getInitialProps = async (context) => {
+Index.getInitialProps = async (context) => {
   if (context.req) {
     const categoriesRes = ApiService.getCategories();
     const productsRes = ApiService.getProducts();
@@ -75,4 +75,4 @@ Main.getInitialProps = async (context) => {
 
   return context;
 };
-export default connect()(Main);
+export default connect()(Index);

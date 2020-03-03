@@ -27,7 +27,7 @@ const Products = ({ products }) => {
           dispatch({
             type: actionTypes.LOADING
           });
-          ApiService.getMoreProducts({ time: state.lastNo }).then((res) => {
+          ApiService.getProducts({ olderThanTime: state.lastNo }).then((res) => {
             const products = res.data.products;
             dispatch({
               type: actionTypes.LOADED_MORE,

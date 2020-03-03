@@ -15,6 +15,4 @@ class MyApp extends App {
         );
     }
 }
-
-
 export default withRedux(store)(MyApp);
