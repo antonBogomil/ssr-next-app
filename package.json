@@ -11,7 +11,7 @@
     "next-images": "^1.2.0",
     "next-redux-wrapper": "^4.0.1",
     "next-server": "^9.0.5",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react": "^16.12.0",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.12.0",
