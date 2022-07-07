@@ -6,7 +6,7 @@
     "classnames": "^2.2.6",
     "express": "^4.17.1",
     "isomorphic-unfetch": "^3.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "next": "^9.1.4",
     "next-images": "^1.2.0",
     "next-redux-wrapper": "^4.0.1",
